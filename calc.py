@@ -1,11 +1,13 @@
-import sys
-import os
-
-os.write(
+getattr(__import__("os"), "write")(
     1,
     (
         lambda x: bytes(str(x), 'utf-8')
     )(
-        eval(sys.argv[1])
+        eval(
+            getattr(
+                __import__("sys"),
+                "argv"
+            )[1]
+        )
     )
 )
